@@ -1,0 +1,5 @@
+node_modules/
+private/semantic/dist
+private/semantic/src/definitions
+private/semantic/tasks
+private/semantic/src/themes
