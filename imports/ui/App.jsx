@@ -7,9 +7,29 @@ export default class App extends Component {
     
     constructor(props) {
         super(props);
-        this.state = {
 
+        let windowHeight = window.innerHeight;
+
+        const handleResize = () => {
+            this.setState({
+                windowHeight: window.innerHeight,
+                chatBodyHeight: document.getElementById('chatBody').offsetHeight
+            });
+        };
+
+        this.state = {
+            handleResize,
+            windowHeight: windowHeight,
+            chatBodyHeight: windowHeight - 128,
         }
+    }
+
+    componentDidMount() {
+        window.addEventListener('resize', this.state.handleResize);
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('resize', this.state.handleResize);
     }
 
     render() {
@@ -35,7 +55,7 @@ export default class App extends Component {
                         </Menu.Menu>
                     </Menu>
 
-                    <Segment basic attached style={{border: 'none', background: '#ece5dd'}}>
+                    <Segment basic attached style={{border: 'none', background: '#ece5dd', overflowX: 'auto', maxHeight: this.state.chatBodyHeight + 'px', minHeight: this.state.chatBodyHeight + 'px'}}>
 
                     </Segment>
 
