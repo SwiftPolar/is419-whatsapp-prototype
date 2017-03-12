@@ -1,5 +1,5 @@
 {
-  "base": "private\\semantic\\",
+  "base": "private/semantic",
   "paths": {
     "source": {
       "config": "src/theme.config",
@@ -8,12 +8,12 @@
       "themes": "src/themes/"
     },
     "output": {
-      "packaged": "..\\..\\node_modules\\semantic-ui-react\\dist\\",
-      "uncompressed": "..\\..\\node_modules\\semantic-ui-react\\dist\\components\\",
-      "compressed": "..\\..\\node_modules\\semantic-ui-react\\dist\\components\\",
-      "themes": "..\\..\\node_modules\\semantic-ui-react\\dist\\themes\\"
+      "packaged": "../../node_modules/semantic-ui-react/dist/",
+      "uncompressed": "../../node_modules/semantic-ui-react/dist/components/",
+      "compressed": "../../node_modules/semantic-ui-react/dist/components/",
+      "themes": "../../node_modules/semantic-ui-react/dist/themes/"
     },
-    "clean": "..\\..\\node_modules\\semantic-ui-react\\dist\\"
+    "clean": "../../node_modules/semantic-ui-react/dist/"
   },
   "permission": false,
   "autoInstall": false,

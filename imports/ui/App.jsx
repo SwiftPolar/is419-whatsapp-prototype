@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Grid, Segment, Menu, Icon, Image, Header, Input, Label } from 'semantic-ui-react';
+import { Grid, Container, Segment, Menu, Icon, Image, Header, Input, Label } from 'semantic-ui-react';
 import 'semantic-ui-react/dist/semantic.min.css';
 
 
@@ -40,7 +40,7 @@ export default class App extends Component {
                     </Segment>
 
                     <Menu borderless attached='bottom' style={{background: '#ece5dd'}}>
-                        <Menu.Item>
+                        <Menu.Item position='right' style={{marginRight: '-10px', width:'90%'}}>
                             <Input size='large' icon labelPosition="left">
                                 <Label style={{borderRightWidth: '0px'}} basic>
                                     <Icon disabled size='large' name='smile' />
