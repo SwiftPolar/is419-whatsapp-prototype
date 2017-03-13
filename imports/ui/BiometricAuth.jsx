@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Modal, Image } from 'semantic-ui-react';
+import { Modal, Image, Icon, Header } from 'semantic-ui-react';
 import Webcam from 'react-webcam';
 
 export default class BioAuth extends Component {
@@ -8,7 +8,8 @@ export default class BioAuth extends Component {
         super(props);
 
         this.state = {
-            open: false
+            open: false,
+            verified: false
         };
     }
 
@@ -21,15 +22,33 @@ export default class BioAuth extends Component {
         console.log(evt);
         console.log(data);
     }
+
+    getModalContent() {
+        return this.state.verified ? (
+            <Modal.Content>
+                <center>
+                    <Icon size='massive' name='checkmark' />
+                    <Header as='h1'>Success</Header>
+                    
+                </center>
+            </Modal.Content>
+        ) : (
+            <Modal.Content>
+                <Webcam audio={false} width='100%' height='auto' />
+                <Image size='small' src='/images/fingerprint.png' centered onClick={
+                    () => {Meteor.setTimeout(() => {
+                        this.setState({verified: true});
+                    }, 2000)}
+                    } />
+            </Modal.Content>
+        );
+    }
     
     render() {
         return (
-            <Modal dimmer='blurring' open={this.state.open} onClose={() => {this.setState({open: false})}} >
+            <Modal dimmer='blurring' open={this.state.open} onClose={() => {this.setState({open: false, verified: false})}} >
                 <Modal.Header content='Authenticating Fingerprint and Iris' />
-                <Modal.Content>
-                    <Webcam audio={false} width='100%' height='auto' />
-                    <Image size='small' src='/images/fingerprint.png' centered />
-                </Modal.Content>
+                {this.getModalContent()}
             </Modal>
         )
     }
