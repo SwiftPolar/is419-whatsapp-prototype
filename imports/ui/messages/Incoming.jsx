@@ -6,10 +6,11 @@ import 'semantic-ui-react/dist/semantic.min.css';
 export default class IncomingMessage extends Component {
     constructor(props) {
         super(props);
+        let {message, date} = props;
         
         this.state = {
-            message: "",
-            date: new Date()
+            message: message ? message : "",
+            date: date ? date : new Date()
         };
     }
 
@@ -24,7 +25,7 @@ export default class IncomingMessage extends Component {
     render() {
         return(
             <Segment compact floated="left" style={{padding: '7px', maxWidth: '75%', backgroundColor: '#fefeff'}}>
-                <div style={{paddingRight: '40px', paddingBottom: '5px'}}>{this.state.message}</div>
+                <div style={{paddingRight: '50px', paddingBottom: '10px'}}>{this.state.message}</div>
                 <Label attached='bottom right' style={{background: 'none', color: '#999999'}}>
                     {moment(this.state.date).format('HH:mm')}
                 </Label>
