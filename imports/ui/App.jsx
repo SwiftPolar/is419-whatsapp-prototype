@@ -4,6 +4,7 @@ import 'semantic-ui-react/dist/semantic.min.css';
 
 import Conversation from './messages/Conversation';
 import AppInput from './Input';
+import BioAuth from './BiometricAuth';
 
 export default class App extends Component {
     
@@ -23,6 +24,7 @@ export default class App extends Component {
             handleResize,
             windowHeight: windowHeight,
             chatBodyHeight: windowHeight - 128,
+            open: false,
         }
     }
 
@@ -53,7 +55,7 @@ export default class App extends Component {
                         <Menu.Menu position='right'>
                             <Menu.Item fitted><Icon inverted size='large' name="phone" /></Menu.Item>
                             <Menu.Item ><Icon inverted size='large' name="attach" /></Menu.Item>
-                            <Menu.Item fitted><Icon inverted size='large' name='ellipsis vertical' /></Menu.Item>
+                            <Menu.Item fitted onClick={()=>{this.setState({open: true})}}><Icon inverted size='large' name='ellipsis vertical' /></Menu.Item>
                         </Menu.Menu>
                     </Menu>
 
@@ -64,6 +66,7 @@ export default class App extends Component {
 
                     <AppInput />
                 </Grid.Column>
+                <BioAuth open={this.state.open} />
             </Grid>
         )
     }
