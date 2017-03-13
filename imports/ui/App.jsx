@@ -3,6 +3,7 @@ import { Grid, Container, Segment, Menu, Icon, Image, Header, Input, Label } fro
 import 'semantic-ui-react/dist/semantic.min.css';
 
 import Conversation from './messages/Conversation';
+import AppInput from './Input';
 
 export default class App extends Component {
     
@@ -61,20 +62,7 @@ export default class App extends Component {
 
                     </Segment>
 
-                    <Menu borderless attached='bottom' style={{background: '#ece5dd'}}>
-                        <Menu.Item position='right' style={{marginRight: '-10px', width:'90%'}}>
-                            <Input size='large' icon labelPosition="left">
-                                <Label style={{borderRightWidth: '0px'}} basic>
-                                    <Icon disabled size='large' name='smile' />
-                                </Label>
-                                <input />
-                                <Icon size='large' name='camera' />
-                            </Input>
-                        </Menu.Item>
-                        <Menu.Item fitted position='right'>
-                            <Icon circular color="teal" size='large' name='microphone' inverted />
-                        </Menu.Item>
-                    </Menu>
+                    <AppInput />
                 </Grid.Column>
             </Grid>
         )

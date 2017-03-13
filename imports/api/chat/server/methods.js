@@ -6,6 +6,14 @@ Meteor.publish('getMessages', function() {
 
 Meteor.methods({
     insertMessage(type, message) {
+        console.log(type);
+        console.log(message);
+        if (!message || !type) {
+            console.log('test');
+            return;
+        }
+         console.log('test2');
+
         Messages.insert({
             type: type,
             message: message,

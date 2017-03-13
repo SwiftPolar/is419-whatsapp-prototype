@@ -32,7 +32,6 @@ const Conversation = class extends Component {
 
     getMessages() {
         let messages = this.state.messages;
-        console.log()
         let results = [];
         let count = 0;
 
