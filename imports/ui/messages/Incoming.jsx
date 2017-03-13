@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Segment, Label, Icon } from 'semantic-ui-react';
+import moment from 'moment';
 import 'semantic-ui-react/dist/semantic.min.css';
 
 export default class IncomingMessage extends Component {
@@ -25,7 +26,7 @@ export default class IncomingMessage extends Component {
             <Segment compact floated="left" style={{padding: '7px', maxWidth: '75%', backgroundColor: '#fefeff'}}>
                 <div style={{paddingRight: '40px', paddingBottom: '5px'}}>{this.state.message}</div>
                 <Label attached='bottom right' style={{background: 'none', color: '#999999'}}>
-                    13:53
+                    {moment(this.state.date).format('HH:mm')}
                 </Label>
             </Segment>
         )
