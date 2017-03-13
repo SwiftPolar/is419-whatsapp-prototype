@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Grid, Container, Segment, Menu, Icon, Image, Header, Input, Label } from 'semantic-ui-react';
 import 'semantic-ui-react/dist/semantic.min.css';
 import OutgoingMessage from './messages/Outgoing';
+import IncomingMessage from './messages/Incoming';
 
 export default class App extends Component {
     
@@ -57,6 +58,7 @@ export default class App extends Component {
 
                     <Segment basic attached style={{border: 'none', background: '#ece5dd', overflowX: 'auto', maxHeight: this.state.chatBodyHeight + 'px', minHeight: this.state.chatBodyHeight + 'px'}}>
                         <OutgoingMessage />
+                        <IncomingMessage />
 
                     </Segment>
 
