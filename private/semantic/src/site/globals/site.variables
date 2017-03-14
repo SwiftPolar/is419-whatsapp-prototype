@@ -2,3 +2,9 @@
      User Global Variables
 *******************************/
 @teal   : #128c7e;
+
+@fontName          : 'Arimo';
+@fontSmoothing     : antialiased;
+
+@headerFont        : 'Helvetica Neue', "Liberation Sans", @fontName, Arial, Helvetica, sans-serif;
+@pageFont          : 'Helvetica Neue', "Liberation Sans", @fontName, Arial, Helvetica, sans-serif;
