@@ -31,6 +31,14 @@ const Conversation = class extends Component {
         }
     }
 
+    componentDidUpdate(prevProps, prevState) {
+        let messageList = document.getElementById('messageList');
+        let lastChild = messageList.lastChild;
+        if (lastChild) {
+            lastChild.scrollIntoView(false);
+        }
+    }
+
     getMessages() {
         let messages = this.state.messages;
         let results = [];
@@ -86,7 +94,7 @@ const Conversation = class extends Component {
 
     render() {
         return(
-            <Grid>
+            <Grid id="messageList">
                 {this.getMessages()}
             </Grid>
         )
