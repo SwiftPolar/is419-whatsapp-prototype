@@ -25,6 +25,7 @@ export default class App extends Component {
             windowHeight: windowHeight,
             chatBodyHeight: windowHeight - 128,
             open: false,
+            uploadPhoto: false,
         }
     }
 
@@ -34,6 +35,10 @@ export default class App extends Component {
 
     componentWillUnmount() {
         window.removeEventListener('resize', this.state.handleResize);
+    }
+
+    uploadedPhoto() {
+        this.setState({uploadPhoto: false});
     }
 
     render() {
@@ -54,7 +59,7 @@ export default class App extends Component {
 
                         <Menu.Menu position='right'>
                             <Menu.Item fitted><Icon inverted size='large' name="phone" /></Menu.Item>
-                            <Menu.Item ><Icon inverted size='large' name="attach" /></Menu.Item>
+                            <Menu.Item onClick={() => {this.setState({uploadPhoto: true})}} ><Icon inverted size='large' name="attach" /></Menu.Item>
                             <Menu.Item fitted onClick={()=>{this.setState({open: true})}}><Icon inverted size='large' name='ellipsis vertical' /></Menu.Item>
                         </Menu.Menu>
                     </Menu>
@@ -64,7 +69,7 @@ export default class App extends Component {
 
                     </Segment>
 
-                    <AppInput />
+                    <AppInput uploadPhoto={this.state.uploadPhoto} uploadedPhoto={this.uploadedPhoto.bind(this)} />
                 </Grid.Column>
                 <BioAuth open={this.state.open} />
             </Grid>

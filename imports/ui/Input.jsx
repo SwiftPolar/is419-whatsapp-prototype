@@ -11,6 +11,14 @@ export default class AppInput extends Component {
         };
     }
 
+    componentWillReceiveProps(nextProps) {
+        const {uploadPhoto} = nextProps;
+        if (uploadPhoto && !this.props.uploadPhoto) {
+            this.processEnter({key: 'Enter'}, {}, 'image');
+            this.props.uploadedPhoto();
+        }
+    }
+
     processInput(evt, data) {
         this.setState({input: data.value});
     }

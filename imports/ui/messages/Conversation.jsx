@@ -9,6 +9,7 @@ import 'semantic-ui-react/dist/semantic.min.css';
 import OutgoingMessage from './Outgoing';
 import IncomingMessage from './Incoming';
 import SystemMessage from './System';
+import ImageGallery from './ImageGallery';
 
 const Conversation = class extends Component {
     constructor(props) {
@@ -63,6 +64,14 @@ const Conversation = class extends Component {
                         </Grid.Row>
                     );
                     
+                    break;
+                
+                case 'image':
+                    results.push(
+                        <Grid.Row columns={1} centered key={'image-message-' + count} style={{paddingBottom: '0px'}}>
+                            <Grid.Column><ImageGallery images={message} date={createdAt}/></Grid.Column>
+                        </Grid.Row>
+                    );
                     break;
                 
 
